@@ -1,5 +1,5 @@
 __author__ = 'Isaiah'
-from objects import game, player
+from objects import game, player, team
 from random import random
 
 
@@ -9,21 +9,23 @@ class engine:
         for u in range(users):
             userB[u] = player.player(u)
         for g in range(games):
-            team1 = []
-            team2 = []
+            team1arr = []
+            team2arr = []
             for o in range(slots):
                 while True:
                     randIndex1 = int(random()*slots)
                     if userB[randIndex1].gamesPlayed < games and userB[randIndex1].currentTeam == 0:
                         userB[u].assignTeam(1)
-                        team1[o] = userB[u]
+                        team1arr[o] = userB[u]
                         break
                 while True:
                     randIndex2 = int(random()*slots)
                     if userB[randIndex2].gamesPlayed < games and userB[randIndex2].currentTeam == 0:
                         userB[u].assignTeam(2)
-                        team2[o] = userB[u]
+                        team2arr[o] = userB[u]
                         break
+            team1 = team.team(team1arr)
+            team2 = team.team(team2arr)
             game.game(team1, team2)
 
     def __init__(self, users, games, slots):
