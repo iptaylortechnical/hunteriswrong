@@ -5,10 +5,12 @@ class team:
     def win(self):
         for p in self.players:
             p.playedGame(True)
+            p.assignTeam(0)
 
     def lose(self):
         for p in self.players:
             p.playedGame(False)
+            p.assignTeam(0)
 
     def findAverage(self):
         count = 0
