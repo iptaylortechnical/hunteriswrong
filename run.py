@@ -2,4 +2,4 @@ __author__ = 'Isaiah'
 from engine import engine
 
 
-engine.engine(0, 0, 0)
+engine.engine(10, 100, 5)

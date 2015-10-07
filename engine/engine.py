@@ -7,7 +7,7 @@ class engine:
     def newGame(self, users, games, slots):
         userB = []
         for u in range(users):
-            userB[u] = player.player(u)
+            userB.append(player.player(u))
         for g in range(games):
             team1arr = []
             team2arr = []
@@ -16,13 +16,13 @@ class engine:
                     randIndex1 = int(random()*slots)
                     if userB[randIndex1].gamesPlayed < games and userB[randIndex1].currentTeam == 0:
                         userB[u].assignTeam(1)
-                        team1arr[o] = userB[u]
+                        team1arr.append(userB[u])
                         break
                 while True:
                     randIndex2 = int(random()*slots)
                     if userB[randIndex2].gamesPlayed < games and userB[randIndex2].currentTeam == 0:
                         userB[u].assignTeam(2)
-                        team2arr[o] = userB[u]
+                        team2arr.append(userB[u])
                         break
             team1 = team.team(team1arr)
             team2 = team.team(team2arr)
