@@ -3,6 +3,9 @@ from random import random
 
 
 class player:
+    def calculateWR(self):
+        self.WR = self.gamesWon/self.gamesPlayed
+
     def assignTeam(self, team):
         self.currentTeam = team
 
@@ -20,3 +23,4 @@ class player:
         self.gamesWon = 0
         self.gamesLost = 0
         self.currentTeam = 0
+        self.WR = 0

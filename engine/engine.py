@@ -27,6 +27,8 @@ class engine:
             team1 = team.team(team1arr)
             team2 = team.team(team2arr)
             game.game(team1, team2)
+        for b in userB:
+            b.calculateWR()
 
     def __init__(self, users, games, slots):
         if not users % slots == 0:
