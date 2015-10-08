@@ -11,16 +11,14 @@ class engine:
         for g in range(games):
             team1arr = []
             team2arr = []
+            print('meh')
             for o in range(slots):
                 while True:
                     randIndex1 = int(random()*users)
-                    print('t',len(team1arr))
-                    print('s', slots)
                     if len(team1arr) < slots:
                         if userB[randIndex1].gamesPlayed < games and userB[randIndex1].currentTeam == 0:
                             userB[randIndex1].assignTeam(1)
                             team1arr.append(userB[randIndex1])
-                            print('l', userB[randIndex1].ind, len(team1arr))
                             break
                     else:
                         break
@@ -33,15 +31,15 @@ class engine:
                             break
                     else:
                         break
+                print(len(team1arr), len(team2arr))
             team1 = team.team(team1arr)
             team2 = team.team(team2arr)
-            game.game(team1, team2)
+            g = game.game(team1, team2)
+            print('g', g.winner)
         w = 0
         for b in userB:
-            print(b.skill)
             b.calculateWR()
             w += b.WR
-        print(w/users)
 
     def __init__(self, users, games, slots):
         if not users % slots == 0:
